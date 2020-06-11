@@ -1,0 +1,35 @@
+<template>
+    <div class="board"
+        :id='id'
+        @dragover.prevent
+        @drop.prevent='drop'>
+        {{id}}
+        <slot />
+    </div>
+</template>
+
+<script>
+export default {
+  props: ['id'],
+  methods: {
+    drop: e => {
+      const cardId = e.dataTransfer.getData('cardId')
+      const card = document.getElementById(cardId)
+      card.style.display = 'block'
+      e.target.appendChild(card)
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+  .board {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 300px;
+      min-height: 200px;
+      padding: 15px;
+      background-color: blue;
+  }
+</style>
