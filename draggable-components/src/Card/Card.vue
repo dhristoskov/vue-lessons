@@ -4,13 +4,20 @@
     :draggable="draggable"
     @dragstart="dragstart"
     @dragover.stop>
+        <span @click="removeTask(card.id)">x</span>
         {{card.text}}
+        <span @click="editTask(card.id)">e</span>
     </div>
 </template>
 
 <script>
 export default {
-  props: ['draggable', 'card'],
+  props: [
+    'draggable',
+    'card',
+    'removeTask',
+    'editTask'
+  ],
   methods: {
     dragstart: e => {
       e.dataTransfer.setData('cardId', e.target.id)

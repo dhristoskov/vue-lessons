@@ -1,16 +1,16 @@
 <template>
     <div class="board"
-        :id='id'
+        :id='board.id'
         @dragover.prevent
         @drop.prevent='drop'>
-        {{id}}
+        {{board.name}}
         <slot />
     </div>
 </template>
 
 <script>
 export default {
-  props: ['id'],
+  props: ['board'],
   methods: {
     drop: e => {
       const cardId = e.dataTransfer.getData('cardId')
@@ -31,5 +31,6 @@ export default {
       min-height: 200px;
       padding: 15px;
       background-color: blue;
+      margin: 10px;
   }
 </style>
