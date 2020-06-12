@@ -1,0 +1,10 @@
+<template>
+    <header>
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li>Boards</li>
+            </ul>
+        </nav>
+    </header>
+</template>
